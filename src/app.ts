@@ -8,7 +8,14 @@ import adminRoutes from "./routes/adminRoutes";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+    cors({
+      origin: "*",
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"], 
+    })
+  );
+  
 app.use(helmet());
 
 
